@@ -1,33 +1,38 @@
-class Student
-{
-String SRN;
-String name;
-static String collegeName; 
-public static void main(String[] args)
-{
+import java.util.Scanner;
 
-Student s1= new Student();
-Student s2= new Student();
-Student s3= new Student();
+class Student {
+    int roll_no;
+    String name;
+    static String cname = "REVA";
+    Scanner s = new Scanner(System.in);
 
-Student.collegeName="REVA UNIVERSITY";
+    void read() {
+        System.out.print("Enter name: ");
+        name = s.next();
+        System.out.print("Enter roll number: ");
+        roll_no = s.nextInt();
+    }
 
-s1.SRN=”R18CS001”;
-s1.name="stud1";
-s2.SRN=”R18CS002”;
-s2.name="stud2";
-s3.SRN=”R18CS003”;
-s3.name="stud3";
+    void display() {
+        System.out.println("Student roll number=" + roll_no);
+        System.out.println("Student name=" + name);
+        System.out.println("College name=" + cname);
+    }
 
-System.out.println("S1 SRN.= "+s1.SRN+" S1 Name= "+s1.name+" S1 College Name="+s1.collegeName );
-System.out.println("S2 SRN.= "+s2.SRN+" S2 Name= "+s2.name+" S2 College Name="+s2.collegeName );
-System.out.println("S3 SRN.= "+s3.SRN+" S3 Name= "+s3.name+" S3 College Name="+s3.collegeName );
-
-s2.collegeName="REVA";
-s2.name="JAMES";
-
-System.out.println("S1 SRN.= "+s1.SRN+" S1 Name= "+s1.name+" S1 College Name="+s1.collegeName );
-System.out.println("S2 SRN.= "+s2.SRN+" S2 Name= "+s2.name+" S2 College Name="+s2.collegeName );
-System.out.println("S3 SRN.= "+s3.SRN+" S3 Name= "+s3.name+" S3 College Name="+s3.collegeName );
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter number of students: ");
+        int n = scanner.nextInt();
+        Student a[] = new Student[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = new Student();
+            System.out.println("Enter details of student " + (i + 1));
+            a[i].read();
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nDetails of student " + (i + 1));
+            a[i].display();
+        }
+    }
 }
-}
+
