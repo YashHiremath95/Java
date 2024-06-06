@@ -2,22 +2,38 @@ public class CountVowelConsonant
 {
 public static void main(String[] args) 
 {
-int vCount = 0, cCount = 0;
-String str = "This is a really simple sentence";
+int vCount = 0, cCount = 0,nCount=0,sCount=0,spCount=0;
+String str = "This is a really simple sentence with 123 @ 456";
 str = str.toLowerCase( );
 for(int i = 0; i < str.length( ); i++) 
 {
-if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u') 
+    char x=str.charAt(i);
+if(x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u') 
 {
 vCount++;
 }
 
-else if(str.charAt(i) >= 'a' && str.charAt(i)<='z') 
+else if(x >= 'a' && x<='z') 
 {
 cCount++;
+}
+else if(Character.isDigit(x))
+{
+   nCount++; 
+}
+else if(x==' ')
+{
+    sCount++;
+}
+else
+{
+    spCount++;
 }
 }
 System.out.println("Number of vowels: " + vCount);
 System.out.println("Number of consonants: " + cCount);
+System.out.println("Number of digits: " + nCount);
+System.out.println("Number of spaces: " + sCount);
+System.out.println("Number of SC: " + spCount);
 }
 }
